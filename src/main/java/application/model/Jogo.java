@@ -31,7 +31,7 @@ public class Jogo {
     )
     private Set<Plataforma> plataformas = new HashSet<>();
     
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "modo_jogo_id")
     private ModoJogo modoJogo;
     

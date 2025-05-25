@@ -1,8 +1,6 @@
 package application.model;
 
 import jakarta.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "modos_jogo")
@@ -15,8 +13,8 @@ public class ModoJogo {
     @Column(nullable = false, unique = true)
     private String descricao;
     
-    @OneToMany(mappedBy = "modoJogo")
-    private Set<Jogo> jogos = new HashSet<>();
+    @OneToOne(mappedBy = "modoJogo")
+    private Jogo jogo;
     
     public ModoJogo() {}
     
@@ -40,11 +38,11 @@ public class ModoJogo {
         this.descricao = descricao;
     }
     
-    public Set<Jogo> getJogos() {
-        return jogos;
+    public Jogo getJogo() {
+        return jogo;
     }
     
-    public void setJogos(Set<Jogo> jogos) {
-        this.jogos = jogos;
+    public void setJogo(Jogo jogo) {
+        this.jogo = jogo;
     }
 } 
